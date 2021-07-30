@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/react-windows-11/static/css/main.dd613f94.chunk.css",
+    "main.js": "/react-windows-11/static/js/main.3da1b5ef.chunk.js",
+    "main.js.map": "/react-windows-11/static/js/main.3da1b5ef.chunk.js.map",
+    "runtime-main.js": "/react-windows-11/static/js/runtime-main.13405bcb.js",
+    "runtime-main.js.map": "/react-windows-11/static/js/runtime-main.13405bcb.js.map",
+    "static/js/2.c3c23937.chunk.js": "/react-windows-11/static/js/2.c3c23937.chunk.js",
+    "static/js/2.c3c23937.chunk.js.map": "/react-windows-11/static/js/2.c3c23937.chunk.js.map",
+    "static/js/3.c4d0714e.chunk.js": "/react-windows-11/static/js/3.c4d0714e.chunk.js",
+    "static/js/3.c4d0714e.chunk.js.map": "/react-windows-11/static/js/3.c4d0714e.chunk.js.map",
+    "index.html": "/react-windows-11/index.html",
+    "static/css/main.dd613f94.chunk.css.map": "/react-windows-11/static/css/main.dd613f94.chunk.css.map",
+    "static/js/2.c3c23937.chunk.js.LICENSE.txt": "/react-windows-11/static/js/2.c3c23937.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/react-windows-11/static/media/bg.ad86b726.jpg",
+    "static/media/discord.ef8d9c88.png": "/react-windows-11/static/media/discord.ef8d9c88.png",
+    "static/media/excel.f7ad5380.png": "/react-windows-11/static/media/excel.f7ad5380.png",
+    "static/media/gmail.a2f2146f.png": "/react-windows-11/static/media/gmail.a2f2146f.png",
+    "static/media/logo.6ce24c58.svg": "/react-windows-11/static/media/logo.6ce24c58.svg",
+    "static/media/plant.4bc69876.png": "/react-windows-11/static/media/plant.4bc69876.png",
+    "static/media/tripadvisor.bf00f45d.png": "/react-windows-11/static/media/tripadvisor.bf00f45d.png",
+    "static/media/windows11.d6c68a62.svg": "/react-windows-11/static/media/windows11.d6c68a62.svg",
+    "static/media/xbox.16a66633.png": "/react-windows-11/static/media/xbox.16a66633.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.13405bcb.js",
+    "static/js/2.c3c23937.chunk.js",
+    "static/css/main.dd613f94.chunk.css",
+    "static/js/main.3da1b5ef.chunk.js"
+  ]
+}
