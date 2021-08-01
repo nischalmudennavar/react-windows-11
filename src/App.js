@@ -51,7 +51,7 @@ function App() {
 
           <div className="All-apps" >
             { toggle === false ?
-              <p onClick={ () => setToggle( true ) }>All apps <span>&#62;</span></p> :
+              <p onClick={ () => setToggle( true ) }>All apps <span>⏭️</span></p> :
               <p onClick={ () => setToggle( false ) }><span id="back">&#60;</span>Back</p> }
           </div>
 
