@@ -20,6 +20,67 @@ function App() {
   const [ menu, setMenu ] = useState( false );
   const [ submenu, setSubmenu ] = useState( false );
   const [ toggle, setToggle ] = useState( false );
+  const [ search, setSearch ] = useState( '' );
+
+  const Applist = ( [
+    {
+      id: 1,
+      image: discord,
+      name: "discord",
+    },
+
+    {
+      id: 2,
+      image: excel,
+      name: "excel",
+    },
+
+    {
+      id: 3,
+      image: gmail,
+      name: "gmail",
+    },
+
+    {
+      id: 4,
+      image: micro,
+      name: "micro ",
+    },
+
+    {
+      id: 5,
+      image: netflix,
+      name: "netflix",
+    },
+
+    {
+      id: 5,
+      image: xbox,
+      name: "xbox",
+    },
+
+    {
+      id: 6,
+      image: plant,
+      name: "plant",
+    },
+
+    {
+      id: 7,
+      image: windows11,
+      name: "windows11",
+    },
+
+    {
+      id: 8,
+      image: react,
+      name: "react",
+    },
+  ] )
+
+  const searchapp = Applist.filter( ( appelement ) => {
+    return appelement.name.toLowerCase().includes( search.toLowerCase() )
+  } )
 
   return (
     <div className="App">
@@ -43,7 +104,10 @@ function App() {
         </span>{ " " }
       </h1>
       <div className={ menu ? "start-menu show" : "start-menu hide" }>
-        <div className="start-search"></div>
+        <input type="text" className="start-search"
+          onChange={ ( e ) => { setSearch( e.target.value ) } }
+        >
+        </input>
 
 
         <div className="start-menu-icons-container">
@@ -58,98 +122,35 @@ function App() {
           { toggle ?
             <div className="app-list">
 
-              <h2 style={{color:"white"}}>All apps</h2>
-              <ul style={{marginTop:"20px"}}>
-                <div className="apps-icon">
-                <img src={ discord} className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
 
-                <div className="apps-icon">
-                <img src={ excel } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
 
-                <div className="apps-icon">
-                <img src={ gmail } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
+              <h2 style={ { color: "white" } }>All apps</h2>
+              <ul style={ { marginTop: "20px" } }>
+                {
+                  searchapp.map( ( app, idx ) => (
+                    <div className="apps-icon" key={ idx }>
+                      <img src={ app.image } className="icons" alt="excel" />
+                      <h5>{ app.name }</h5>
+                    </div>
+                  ) )
 
-                <div className="apps-icon">
-                <img src={netflix } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
+                }
 
-                <div className="apps-icon">
-                <img src={ micro } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
 
-                <div className="apps-icon">
-                <img src={ office } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
-
-                <div className="apps-icon">
-                <img src={ micro } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
-               
               </ul>
             </div>
 
             :
 
             <div className="start-menu-icons">
-              <div className="icon-container">
-                <img src={ discord } className="icons" alt="discord" />
-                <h3 className="icon-heading">Discord</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ excel } className="icons" alt="excel" />
-                <h3 className="icon-heading">Excel</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ gmail } className="icons" alt="gmail" />
-                <h3 className="icon-heading">Gmail</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ micro } className="icons" alt="microsoft" />
-                <h3 className="icon-heading">icon name</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ netflix } className="icons" alt="netflix" />
-                <h3 className="icon-heading">icon name</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ office } className="icons" alt="office" />
-                <h3 className="icon-heading">icon name</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ trip } className="icons" alt="tripadvisor" />
-                <h3 className="icon-heading">icon name</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ xbox } className="icons" alt="xbox" />
-                <h3 className="icon-heading">Xbox </h3>
-              </div>
-
-              <div className="icon-container">
-                <img src={ plant } className="icons" alt="netflix" />
-                <h3 className="icon-heading">plant</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ office } className="icons" alt="office" />
-                <h3 className="icon-heading">Office</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ trip } className="icons" alt="tripadvisor" />
-                <h3 className="icon-heading">Trip advisor</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ xbox } className="icons" alt="xbox" />
-                <h3 className="icon-heading">Xbox</h3>
-              </div>
+              {
+                searchapp.map( ( app ) => (
+                  <div className="icon-container">
+                    <img src={ app.image } className="icons" alt="discord" />
+                    <h3 className="icon-heading">{ app.name }</h3>
+                  </div>
+                ) )
+              }
             </div>
           }
 
@@ -173,7 +174,7 @@ function App() {
 
 
         <div className="start-menu-footer">
-       
+
           <div className="start-menu-footer-icons">
             <img
               src="https://64.media.tumblr.com/2ca2d3087760a85155b84a60e9de4684/88a3bf1d1e87f0ee-51/s400x600/6d0f9910e1d3352257581035b3ea5f3d57b289f3.gifv"
