@@ -1,25 +1,71 @@
 import { useState } from "react";
-
-
 import "./App.css";
-
-// import image as a variable from assets folder
-import discord from "./assets/discord.png";
-import excel from "./assets/excel.png";
-import gmail from "./assets/gmail.png";
-import micro from "./assets/microsoft.png";
-import netflix from "./assets/netflix.png";
-import office from "./assets/office.png";
-import trip from "./assets/tripadvisor.png";
-import xbox from "./assets/xbox.png";
-import plant from "./assets/plant.png";
-import windows11 from "./assets/windows11.svg";
-import react from "./assets/logo.svg";
 
 function App() {
   const [ menu, setMenu ] = useState( false );
   const [ submenu, setSubmenu ] = useState( false );
   const [ toggle, setToggle ] = useState( false );
+  const [ search, setSearch ] = useState( '' );
+
+  const Applist = ( [
+    {
+      id: 1,
+      image: require( './assets/discord.png' ).default,
+      name: "discord",
+    },
+
+    {
+      id: 2,
+      image: require( './assets/excel.png' ).default,
+      name: "excel",
+    },
+
+    {
+      id: 3,
+      image: require( './assets/gmail.png' ).default,
+      name: "gmail",
+    },
+
+    {
+      id: 4,
+      image: require( './assets/microsoft.png' ).default,
+      name: "micro ",
+    },
+
+    {
+      id: 5,
+      image: require( './assets/netflix.png' ).default,
+      name: "netflix",
+    },
+
+    {
+      id: 5,
+      image: require( './assets/xbox.png' ).default,
+      name: "xbox",
+    },
+
+    {
+      id: 6,
+      image: require( './assets/plant.png' ).default,
+      name: "plant",
+    },
+
+    {
+      id: 7,
+      image: require( './assets/windows11.svg' ).default,
+      name: "windows11",
+    },
+
+    {
+      id: 8,
+      image: require( './assets/logo.svg' ).default,
+      name: "react",
+    },
+  ] )
+
+  const searchapp = Applist.filter( ( appelement ) => {
+    return appelement.name.toLowerCase().includes( search.toLowerCase() )
+  } )
 
   return (
     <div className="App">
@@ -27,7 +73,7 @@ function App() {
         Developed with  💗 &
         <span>
           <img
-            src={ react }
+            src={ require( './assets/logo.svg' ).default }
             style={ { height: "40px", transform: "translateY(10px)" } }
             alt="asd"
           />
@@ -36,19 +82,20 @@ function App() {
         <br />
         <span>
           <img
-            src={ windows11 }
+            src={ require( './assets/windows11.svg' ).default }
             style={ { height: "40px", marginTop: "20px" } }
             alt="asd"
           />
         </span>{ " " }
       </h1>
       <div className={ menu ? "start-menu show" : "start-menu hide" }>
-        <div className="start-search"></div>
+        <input type="text" className="start-search" placeholder=" Type here to search"
+          onChange={ ( e ) => { setSearch( e.target.value ) } }
+        >
+        </input>
 
 
         <div className="start-menu-icons-container">
-
-
           <div className="All-apps" >
             { toggle === false ?
               <p onClick={ () => setToggle( true ) }>All apps <span>⏭️</span></p> :
@@ -58,98 +105,32 @@ function App() {
           { toggle ?
             <div className="app-list">
 
-              <h2 style={{color:"white"}}>All apps</h2>
-              <ul style={{marginTop:"20px"}}>
-                <div className="apps-icon">
-                <img src={ discord} className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
+              <h2 style={ { color: "white" } }>All apps</h2>
+              <ul style={ { marginTop: "20px" } }>
+                {
 
-                <div className="apps-icon">
-                <img src={ excel } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
+                  searchapp.map( ( app, idx ) => (
+                    <div className="apps-icon" key={ idx }>
+                      <img src={ app.image } className="icons" alt="excel" />
+                      <h5>{ app.name }</h5>
+                    </div>
+                  ) )
 
-                <div className="apps-icon">
-                <img src={ gmail } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
-
-                <div className="apps-icon">
-                <img src={netflix } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
-
-                <div className="apps-icon">
-                <img src={ micro } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
-
-                <div className="apps-icon">
-                <img src={ office } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
-
-                <div className="apps-icon">
-                <img src={ micro } className="icons" alt="excel" />
-                <h5>MS Word</h5>
-                </div>
-               
+                }
               </ul>
             </div>
 
             :
 
             <div className="start-menu-icons">
-              <div className="icon-container">
-                <img src={ discord } className="icons" alt="discord" />
-                <h3 className="icon-heading">Discord</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ excel } className="icons" alt="excel" />
-                <h3 className="icon-heading">Excel</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ gmail } className="icons" alt="gmail" />
-                <h3 className="icon-heading">Gmail</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ micro } className="icons" alt="microsoft" />
-                <h3 className="icon-heading">icon name</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ netflix } className="icons" alt="netflix" />
-                <h3 className="icon-heading">icon name</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ office } className="icons" alt="office" />
-                <h3 className="icon-heading">icon name</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ trip } className="icons" alt="tripadvisor" />
-                <h3 className="icon-heading">icon name</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ xbox } className="icons" alt="xbox" />
-                <h3 className="icon-heading">Xbox </h3>
-              </div>
-
-              <div className="icon-container">
-                <img src={ plant } className="icons" alt="netflix" />
-                <h3 className="icon-heading">plant</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ office } className="icons" alt="office" />
-                <h3 className="icon-heading">Office</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ trip } className="icons" alt="tripadvisor" />
-                <h3 className="icon-heading">Trip advisor</h3>
-              </div>
-              <div className="icon-container">
-                <img src={ xbox } className="icons" alt="xbox" />
-                <h3 className="icon-heading">Xbox</h3>
-              </div>
+              {
+                searchapp.map( ( app, idx ) => (
+                  <div className="icon-container" key={ idx }>
+                    <img src={ app.image } className="icons" alt="discord" />
+                    <h3 className="icon-heading">{ app.name }</h3>
+                  </div>
+                ) )
+              }
             </div>
           }
 
@@ -160,11 +141,11 @@ function App() {
               </h3>
               <div className="start-pinned-icons">
                 <div className="icon-container">
-                  <img src={ office } className="icons" alt="office" />
+                  <img src={ require( './assets/office.png' ).default } className="icons" alt="office" />
                   <h3 className="icon-heading">icon name</h3>
                 </div>
                 <div className="icon-container">
-                  <img src={ trip } className="icons" alt="tripadvisor" />
+                  <img src={ require( './assets/tripadvisor.png' ).default } className="icons" alt="tripadvisor" />
                   <h3 className="icon-heading">icon name</h3>
                 </div>
               </div>
@@ -173,7 +154,7 @@ function App() {
 
 
         <div className="start-menu-footer">
-       
+
           <div className="start-menu-footer-icons">
             <img
               src="https://64.media.tumblr.com/2ca2d3087760a85155b84a60e9de4684/88a3bf1d1e87f0ee-51/s400x600/6d0f9910e1d3352257581035b3ea5f3d57b289f3.gifv"
@@ -216,7 +197,7 @@ function App() {
 
       <div className="footer">
         <button className="windows-btn" onClick={ () => setMenu( !menu ) }>
-          <img className="micro-logo" src={ windows11 } alt="start logo" />
+          <img className="micro-logo" src={ require( './assets/windows11.svg' ).default } alt="start logo" />
         </button>
       </div>
     </div>

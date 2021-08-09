@@ -55,6 +55,11 @@ h1{
   margin: 15px;
   border-radius: 5px;
 }
+input{
+  outline: none;
+  border: none;
+  color: white;
+}
 .start-menu-icons-container {
   min-height: 55vh;
   width: 90%;
